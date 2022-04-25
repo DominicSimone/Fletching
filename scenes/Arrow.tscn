@@ -1,0 +1,38 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://assets/objects/arrow_shaft.obj" type="ArrayMesh" id=1]
+[ext_resource path="res://assets/objects/arrow_head.obj" type="ArrayMesh" id=2]
+[ext_resource path="res://scripts/Arrow.gd" type="Script" id=3]
+
+[sub_resource type="CapsuleShape" id=1]
+radius = 0.0482598
+height = 0.628897
+
+[node name="Arrow" type="Spatial"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0242196, 0, 0 )
+script = ExtResource( 3 )
+
+[node name="Model" type="Spatial" parent="."]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0 )
+
+[node name="Shaft" type="MeshInstance" parent="Model"]
+transform = Transform( -4.37114e-08, 1, 0, 4.37114e-08, 1.91069e-15, -1, -1, -4.37114e-08, -4.37114e-08, 0, -8.14907e-10, 0 )
+mesh = ExtResource( 1 )
+skeleton = NodePath("../../../..")
+material/0 = null
+
+[node name="ArrowHead" type="MeshInstance" parent="Model"]
+transform = Transform( -4.37114e-08, 0, -0.8, 0, 0.8, 0, 1, 4.44091e-17, -3.49691e-08, -0.000442371, 2.98023e-08, 0.510995 )
+mesh = ExtResource( 2 )
+skeleton = NodePath("../../../..")
+material/0 = null
+
+[node name="Area" type="Area" parent="Model"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 1.85288e-22, 1, 0, 0, 0 )
+monitorable = false
+
+[node name="CollisionShape" type="CollisionShape" parent="Model/Area"]
+transform = Transform( 1, -1.11022e-15, 0, 0, 1, 0, 0, 2.51463e-22, 1, 0.000616767, -5.96046e-08, 0.207134 )
+shape = SubResource( 1 )
+
+[connection signal="area_entered" from="Model/Area" to="." method="_on_Area_area_entered"]

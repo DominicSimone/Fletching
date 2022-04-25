@@ -1,0 +1,20 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/arrow_shaft.obj-8c87e9aa19dc50dc5d0401c08dfdaa13.mesh"
+
+[deps]
+
+files=[ "res://.import/arrow_shaft.obj-8c87e9aa19dc50dc5d0401c08dfdaa13.mesh" ]
+
+source_file="res://assets/objects/arrow_shaft.obj"
+dest_files=[ "res://.import/arrow_shaft.obj-8c87e9aa19dc50dc5d0401c08dfdaa13.mesh", "res://.import/arrow_shaft.obj-8c87e9aa19dc50dc5d0401c08dfdaa13.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+octahedral_compression=true
+optimize_mesh_flags=4286
