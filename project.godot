@@ -15,12 +15,36 @@ _global_script_classes=[ {
 "path": "res://scripts/Enums.gd"
 }, {
 "base": "Reference",
+"class": "Game",
+"language": "GDScript",
+"path": "res://scripts/Game.gd"
+}, {
+"base": "Node",
+"class": "GameManager",
+"language": "GDScript",
+"path": "res://scripts/GameManager.gd"
+}, {
+"base": "Reference",
+"class": "GameState",
+"language": "GDScript",
+"path": "res://scripts/GameState.gd"
+}, {
+"base": "Reference",
+"class": "Score",
+"language": "GDScript",
+"path": "res://scripts/Score.gd"
+}, {
+"base": "Reference",
 "class": "Util",
 "language": "GDScript",
 "path": "res://scripts/Util.gd"
 } ]
 _global_script_class_icons={
 "Enums": "",
+"Game": "",
+"GameManager": "",
+"GameState": "",
+"Score": "",
 "Util": ""
 }
 

@@ -5,3 +5,17 @@ enum ArrowState {
 	IN_FLIGHT,
 	LANDED
 }
+
+enum GameState {
+	READY,
+	ONGOING,
+	COMPLETE
+}
+
+enum GameMode {
+	FREE_PLAY
+}
+
+enum ArrowType {
+	DEFAULT
+}

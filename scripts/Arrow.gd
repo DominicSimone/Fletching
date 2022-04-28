@@ -5,6 +5,7 @@ var velocity_range = [0, 1]
 var arrow_z_range = [-.2, 0.33]
 var forward_velocity: float = 0
 var gravity: float = 0
+var score = 0
 
 onready var model: Spatial = get_node("Model")
 onready var arrowhead: MeshInstance = get_node("Model/ArrowHead")
@@ -26,15 +27,13 @@ func adjust_draw(draw: float):
 
 func fire(draw: float) -> bool:
 	if state == Enums.ArrowState.NOCKED:
-		print("arrow fired")
 		forward_velocity = -1 * Util.in_range(velocity_range, draw)
 		state = Enums.ArrowState.IN_FLIGHT
 		return true
 	return false
 
-# TODO score evaluation + move arrow to surface of target? to keep physics fps low?
 func _on_Area_area_entered(area):
 	state = Enums.ArrowState.LANDED
-	area.get_depth(arrowhead.global_transform.origin, to_global(Vector3.FORWARD))
-	print(area.get_points(arrowhead.global_transform.origin))
-	print("Collided with something")
+	score = area.get_points(arrowhead.global_transform.origin, -1 * global_transform.basis.z)
+	print(ceil(score))
+
