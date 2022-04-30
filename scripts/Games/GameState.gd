@@ -1,12 +1,14 @@
 class_name GameState
 
 var gamemode: int = -1
+var status: int = -1
 
 var time_left = null
 var quiver: Dictionary = {}
 var wind: Vector3 = Vector3.ZERO
+var target_locations: Array = []
 
-var displayed_score: int = 0
+var displayed_scores: PoolStringArray = []
 var scores: Array = []
 
 # Anything else that a specific GameMode may need

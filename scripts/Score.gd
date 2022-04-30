@@ -3,6 +3,7 @@ class_name Score
 var points
 var distance
 var wind: Vector3
+var value: int
 
 var arrowType: int = Enums.ArrowType.DEFAULT
 

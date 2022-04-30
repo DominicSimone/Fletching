@@ -1,15 +1,85 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=14 format=2]
 
-[ext_resource path="res://scripts/GameManager.gd" type="Script" id=1]
+[ext_resource path="res://scripts/Games/GameManager.gd" type="Script" id=1]
 [ext_resource path="res://assets/environments/default_env.tres" type="Environment" id=2]
 [ext_resource path="res://assets/objects/world.obj" type="ArrayMesh" id=3]
 [ext_resource path="res://assets/materials/hills_mat.tres" type="Material" id=4]
 [ext_resource path="res://scenes/Target.tscn" type="PackedScene" id=5]
+[ext_resource path="res://assets/textures/options_texture.png" type="Texture" id=6]
+[ext_resource path="res://assets/Bullpen3D.ttf" type="DynamicFontData" id=7]
 [ext_resource path="res://assets/objects/bow_frame.obj" type="ArrayMesh" id=8]
 [ext_resource path="res://assets/materials/bow_mat.tres" type="Material" id=9]
+[ext_resource path="res://scripts/User Interface/UI.gd" type="Script" id=10]
 [ext_resource path="res://scripts/Player.gd" type="Script" id=11]
+[ext_resource path="res://assets/textures/quiver_texture.png" type="Texture" id=12]
+
+[sub_resource type="DynamicFont" id=1]
+size = 28
+font_data = ExtResource( 7 )
 
 [node name="Spatial" type="Spatial"]
+
+[node name="UI" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 10 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GameMenu" type="PopupMenu" parent="UI"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 184.0
+margin_top = 84.0
+margin_right = 162.0
+margin_bottom = 65.0
+
+[node name="Button" type="Button" parent="UI/GameMenu"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 366.0
+margin_top = 39.0
+margin_right = -396.0
+margin_bottom = -457.0
+text = "Button"
+
+[node name="OptionsButton" type="TextureButton" parent="UI"]
+margin_left = 16.0
+margin_top = 16.0
+margin_right = 80.0
+margin_bottom = 80.0
+texture_normal = ExtResource( 6 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="QuiverButton" type="TextureButton" parent="UI"]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_left = 16.0
+margin_top = -80.0
+margin_right = 80.0
+margin_bottom = -16.0
+texture_normal = ExtResource( 12 )
+expand = true
+
+[node name="Score" type="Label" parent="UI"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -248.0
+margin_top = 16.0
+margin_right = 248.0
+margin_bottom = 232.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "0
+"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="GameManager" type="Node" parent="."]
 script = ExtResource( 1 )
@@ -45,3 +115,5 @@ material/0 = ExtResource( 4 )
 
 [node name="Target" parent="." instance=ExtResource( 5 )]
 transform = Transform( -0.486565, 0, 0.873644, 0, 1, 0, -0.873644, 0, -0.486565, 14.4096, 0.346197, 16.1388 )
+
+[connection signal="pressed" from="UI/OptionsButton" to="UI" method="_on_OptionsButton_pressed"]

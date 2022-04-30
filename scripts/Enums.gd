@@ -6,7 +6,7 @@ enum ArrowState {
 	LANDED
 }
 
-enum GameState {
+enum GameStatus {
 	READY,
 	ONGOING,
 	COMPLETE
@@ -14,6 +14,11 @@ enum GameState {
 
 enum GameMode {
 	FREE_PLAY
+}
+
+enum GameResponse {
+	PLACE_TARGETS,
+	UPDATE_SCORE
 }
 
 enum ArrowType {
