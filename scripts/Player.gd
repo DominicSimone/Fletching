@@ -6,10 +6,8 @@ var bow_draw: float = 0
 var arrow_z = [-.2, 0.33]
 var arrowScene = preload("res://scenes/Arrow.tscn")
 var nockedArrow: Spatial
-var shot_arrows = []
 
-export(NodePath) var camera_path
-onready var camera: Camera = get_node(camera_path)
+onready var camera: Camera = get_node("Camera")
 var fov_range = [40, 60]
 var sense_range = [0.2, 1]
 
@@ -23,6 +21,7 @@ func _ready():
 
 func new_arrow():
 	nockedArrow = arrowScene.instance()
+	nockedArrow.player = self
 	add_child(nockedArrow)
 	bow_draw = 0
 	nockedArrow.adjust_draw(bow_draw)
@@ -41,7 +40,6 @@ func _input(event):
 		if not event.pressed and bow_draw > 0:
 			if nockedArrow.fire(bow_draw):
 				Util.move(nockedArrow, self, get_parent())
-				shot_arrows.append(nockedArrow)
 				nockedArrow = null
 				bow_draw = 0
 				camera.fov = Util.in_range(fov_range, 1 - bow_draw)

@@ -8,7 +8,6 @@ onready var center: Spatial = target_model.get_node("Center")
 func get_points(x_ray: Vector3, d_ray: Vector3):
 	var intersection = get_intersection(x_ray, d_ray)
 	var distance_vec = (intersection - center.global_transform.origin)
-#	print(distance_vec.length())
 	return 100 - 100 * (distance_vec.length() / radius)
 
 func get_intersection(x_ray: Vector3, d_ray: Vector3):

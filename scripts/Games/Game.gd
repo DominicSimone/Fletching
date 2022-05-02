@@ -4,15 +4,18 @@ class_name Game
 func init_state() -> GameState:
 	return GameState.new()
 
-func on_arrow_fire(state, player, arrow) -> PoolIntArray:
+func on_arrow_fire(state: GameState, player, arrow) -> PoolIntArray:
 	return PoolIntArray()
 
-func on_target_hit(state, player, arrow, target, points) -> PoolIntArray:
+func on_target_hit(state: GameState, player, arrow, target, points) -> PoolIntArray:
 	return PoolIntArray()
 	
-func ui_action(state, action) -> PoolIntArray:
+func ui_action(state: GameState, action) -> PoolIntArray:
 	return PoolIntArray()
 	
 # Maybe limit usage? Will be run every frame
-func on_update(state, delta) -> PoolIntArray:
+func on_update(state: GameState, delta) -> PoolIntArray:
 	return PoolIntArray()
+	
+func end_summary(state: GameState) -> Dictionary:
+	return {}

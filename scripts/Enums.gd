@@ -18,7 +18,8 @@ enum GameMode {
 
 enum GameResponse {
 	PLACE_TARGETS,
-	UPDATE_SCORE
+	UPDATE_SCORE,
+	END_GAME
 }
 
 enum ArrowType {

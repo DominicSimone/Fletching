@@ -1,18 +1,17 @@
 extends Control
 
-onready var optionsMenu: PopupMenu = get_node("GameMenu")
+onready var optionsMenu: Control = get_node("OptionsMenu")
 onready var scoreLabel: Label = get_node("Score")
 
-# TODO quiver menu, score connection w0ith GameManager
+# TODO quiver menu
 
 func _on_OptionsButton_pressed():
-	optionsMenu.popup_centered_ratio()
+	optionsMenu.visible = !optionsMenu.visible
 
-func update_score(score_texts: PoolStringArray, color: Color):
+func update_score(score_texts: PoolStringArray, color: Color = Color.black):
 	var text = ""
 	for string in score_texts:
 		text += string
 		text += "\n"
 	scoreLabel.text = text
-	scoreLabel.font_color = color
-	
+	scoreLabel.add_color_override("font_color", color)

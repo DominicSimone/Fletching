@@ -6,7 +6,7 @@
 
 [sub_resource type="CapsuleShape" id=1]
 radius = 0.0482598
-height = 0.628897
+height = 0.740998
 
 [node name="Arrow" type="Spatial"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0242196, 0, 0 )

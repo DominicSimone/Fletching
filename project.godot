@@ -59,6 +59,7 @@ _global_script_class_icons={
 config/name="Fletching"
 run/main_scene="res://scenes/main.tscn"
 config/icon="res://icon.png"
+config/quit_on_go_back=false
 
 [input]
 

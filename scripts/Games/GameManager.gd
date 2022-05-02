@@ -2,15 +2,12 @@ class_name GameManager extends Node
 
 var currentGameState: GameState 
 var currentGame: Game
-onready var UI: Control = get_node("/root/Spatial/UI")
-
-func _ready():
-	load_game(FreePlay.new())
-	print("FreePlay loaded")
+var UI: Control
 
 func load_game(game: Game):
 	currentGame = game
 	currentGameState = game.init_state()
+	UI = get_node("/root/Spatial/Game/UI")
 
 func get_action_list():
 	if currentGame.action_list == null:
@@ -32,7 +29,12 @@ func handleResponse(responses: PoolIntArray):
 			Enums.GameResponse.PLACE_TARGETS:
 				pass
 			Enums.GameResponse.UPDATE_SCORE:
-				pass
+				UI.update_score(currentGameState.displayed_scores)
+			Enums.GameResponse.END_GAME:
+				# TODO store these results somewhere
+				# TODO show end game screen
+				var results = currentGame.score_summary(currentGameState)
 
 func _process(delta):
-	pass
+	if currentGame != null:
+		handleResponse(currentGame.on_update(currentGameState, delta))
