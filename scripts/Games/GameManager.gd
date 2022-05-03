@@ -3,6 +3,11 @@ class_name GameManager extends Node
 var currentGameState: GameState 
 var currentGame: Game
 var UI: Control
+var playerData: PlayerData
+
+func _ready():
+	# TODO Load player data
+	pass
 
 func load_game(game: Game):
 	currentGame = game

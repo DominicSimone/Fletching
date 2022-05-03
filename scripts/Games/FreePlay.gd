@@ -6,6 +6,9 @@ var action_list = [
 	"End Game"
 ]
 
+var name = "Free Play"
+var type = Enums.GameMode.FREE_PLAY
+
 # Initialize game state here; set initial wind direction, quiver, timer value, etc.
 func init_state() -> GameState:
 	var state = GameState.new()

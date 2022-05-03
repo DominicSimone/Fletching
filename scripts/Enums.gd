@@ -13,7 +13,9 @@ enum GameStatus {
 }
 
 enum GameMode {
-	FREE_PLAY
+	FREE_PLAY,
+	TIME_ATTACK,
+	STANDARD
 }
 
 enum GameResponse {
@@ -23,5 +25,7 @@ enum GameResponse {
 }
 
 enum ArrowType {
-	DEFAULT
+	DEFAULT,
+	GOLD,
+	DIAMOND
 }

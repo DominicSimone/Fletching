@@ -1,7 +1,7 @@
 [gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://assets/environments/default_env.tres" type="Environment" id=1]
-[ext_resource path="res://scripts/User Interface/UI.gd" type="Script" id=2]
+[ext_resource path="res://scripts/UI.gd" type="Script" id=2]
 [ext_resource path="res://scripts/Player.gd" type="Script" id=3]
 [ext_resource path="res://assets/textures/options_texture.png" type="Texture" id=4]
 [ext_resource path="res://assets/textures/quiver_texture.png" type="Texture" id=5]

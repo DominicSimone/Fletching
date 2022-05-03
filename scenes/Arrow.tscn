@@ -16,7 +16,7 @@ script = ExtResource( 3 )
 transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0 )
 
 [node name="Shaft" type="MeshInstance" parent="Model"]
-transform = Transform( -4.37114e-08, 1, 0, 4.37114e-08, 1.91069e-15, -1, -1, -4.37114e-08, -4.37114e-08, 0, -8.14907e-10, 0 )
+transform = Transform( 4.37114e-08, -3.82137e-15, -1, -8.74228e-08, -1, 0, -1, 8.74228e-08, -4.37114e-08, 0, 0, 0 )
 mesh = ExtResource( 1 )
 skeleton = NodePath("../../../..")
 material/0 = null
