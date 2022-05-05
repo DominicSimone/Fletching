@@ -9,9 +9,11 @@ func _on_Play_pressed():
 	secondaryPlayControl.visible = true
 
 func _on_Scores_pressed():
+	# TODO
 	print("Scores screen")
 
 func _on_Shop_pressed():
+	# TODO
 	print("Shop")
 
 func _on_Free_Play_pressed():
@@ -20,7 +22,9 @@ func _on_Free_Play_pressed():
 	call_deferred("queue_free")
 
 func _on_Time_Attack_pressed():
-	pass # Replace with function body.
+	# TODO when time attack game mode is made
+	pass 
 
 func _on_Standard_pressed():
-	pass # Replace with function body.
+	# TODO when standard game mode is made
+	pass 

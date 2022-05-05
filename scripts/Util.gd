@@ -21,3 +21,9 @@ static func entry(dict: Dictionary, key: String, default):
 	if key in dict:
 		return dict[key]
 	return default
+
+static func sum_scores(scores: Array):
+	var sum = 0
+	for score in scores:
+		sum += score.getValue()
+	return sum

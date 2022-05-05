@@ -16,6 +16,6 @@ func ui_action(state: GameState, action) -> PoolIntArray:
 # Maybe limit usage? Will be run every frame
 func on_update(state: GameState, delta) -> PoolIntArray:
 	return PoolIntArray()
-	
-func end_summary(state: GameState) -> Dictionary:
-	return {}
+
+func get_action_list() -> Array:
+	return []

@@ -7,15 +7,15 @@ var action_list = [
 ]
 
 var name = "Free Play"
-var type = Enums.GameMode.FREE_PLAY
 
 # Initialize game state here; set initial wind direction, quiver, timer value, etc.
 func init_state() -> GameState:
 	var state = GameState.new()
 	state.gamemode = Enums.GameMode.FREE_PLAY
 	state.metadata.wind_toggle = true
+	state.wind = randomWind()
 	state.status = Enums.GameStatus.READY
-	state.target_locations = [Vector3.ZERO]
+	state.target_locations = [randomLoc()]
 	return state
 
 func on_arrow_fire(state: GameState, player, arrow) -> PoolIntArray:
@@ -23,7 +23,13 @@ func on_arrow_fire(state: GameState, player, arrow) -> PoolIntArray:
 	return PoolIntArray()
 
 func on_target_hit(state: GameState, player, arrow, target, points) -> PoolIntArray:
-	state.displayed_scores = [ceil(points) as String]
+	var score = Score.new(points, player.global_transform.origin.distance_to(target.global_transform.origin), state.wind)
+	if state.scores.empty():
+		state.scores.append(score)
+	elif score.points > state.scores[0].points:
+		state.scores[0] = score
+	state.displayed_scores = [ceil(state.scores[0].getValue()) as String]
+	state.coin_gain = 1
 	return PoolIntArray([Enums.GameResponse.UPDATE_SCORE])
 
 func ui_action(state: GameState, action) -> PoolIntArray:
@@ -41,18 +47,18 @@ func ui_action(state: GameState, action) -> PoolIntArray:
 			return PoolIntArray([Enums.GameResponse.END_GAME])
 	return PoolIntArray()
 
-# Maybe limit usage? Will be run every frame
 func on_update(state: GameState, delta) -> PoolIntArray:
 	return PoolIntArray()
 
-func end_summary(state: GameState) -> Dictionary:
-	# TODO return the highest score achieved
-	return {}
+func get_action_list() -> Array:
+	return action_list
 
-# TODO
 func randomWind() -> Vector3:
-	return Vector3.ZERO
+	var rand_x = randf() - 1
+	var rand_z = randf() - 1
+	return Vector3(rand_x, 0, rand_z)
 
-# TODO 
 func randomLoc() -> Vector3:
-	return Vector3.ZERO
+	var rand_x = (randf() * 20) - 10
+	var rand_z = (randf() * 20) - 10 
+	return Vector3(rand_x, 0, rand_z)

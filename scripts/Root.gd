@@ -8,4 +8,5 @@ func add_game_node():
 
 func _notification(what):
 	if what == MainLoop.NOTIFICATION_WM_QUIT_REQUEST:
+		# TODO
 		pass

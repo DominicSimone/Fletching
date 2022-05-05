@@ -18,3 +18,4 @@ Button/fonts/font = SubResource( 1 )
 Button/styles/hover = ExtResource( 2 )
 Button/styles/normal = ExtResource( 2 )
 Button/styles/pressed = ExtResource( 2 )
+VBoxContainer/constants/separation = 64
