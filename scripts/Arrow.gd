@@ -15,11 +15,12 @@ onready var arrowhead: MeshInstance = get_node("Model/ArrowHead")
 onready var gameManager: GameManager = get_node("/root/Spatial/GameManager")
 
 var prev_pos: Vector3 = Vector3(0, 0, 0)
+var landedTime: int = 0
 
 func _physics_process(delta):
 	if state != Enums.ArrowState.NOCKED:
 		timer -= delta
-	if timer < 0:
+	if timer < 0 or (landedTime != 0 and landedTime < gameManager.currentGameState.targets_placed_time):
 		call_deferred("queue_free")
 	if state == Enums.ArrowState.IN_FLIGHT:
 		prev_pos = global_transform.origin
@@ -45,6 +46,7 @@ func fire(draw: float) -> bool:
 
 func _on_Area_area_entered(area):
 	state = Enums.ArrowState.LANDED
+	landedTime = OS.get_unix_time()
 	score = area.get_points(arrowhead.global_transform.origin, -1 * global_transform.basis.z)
 	gameManager.on_target_hit(player, self, area, score)
 

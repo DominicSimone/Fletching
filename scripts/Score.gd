@@ -8,7 +8,7 @@ var value: int
 var arrowType: int = Enums.ArrowType.DEFAULT
 
 func _init(p, dist, w: Vector3):
-	points = p
+	points = p if p > 0 else 0
 	distance = dist
 	wind = w
 

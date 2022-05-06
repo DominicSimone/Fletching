@@ -26,9 +26,9 @@ func on_target_hit(state: GameState, player, arrow, target, points) -> PoolIntAr
 	var score = Score.new(points, player.global_transform.origin.distance_to(target.global_transform.origin), state.wind)
 	if state.scores.empty():
 		state.scores.append(score)
-	elif score.points > state.scores[0].points:
+	elif state.scores[0].getValue() < score.getValue():
 		state.scores[0] = score
-	state.displayed_scores = [ceil(state.scores[0].getValue()) as String]
+	state.displayed_scores = [ceil(score.getValue()) as String]
 	state.coin_gain = 1
 	return PoolIntArray([Enums.GameResponse.UPDATE_SCORE])
 
@@ -59,6 +59,6 @@ func randomWind() -> Vector3:
 	return Vector3(rand_x, 0, rand_z)
 
 func randomLoc() -> Vector3:
-	var rand_x = (randf() * 20) - 10
-	var rand_z = (randf() * 20) - 10 
+	var rand_x = (randf() * 24) - 12
+	var rand_z = (randf() * 24) - 12 
 	return Vector3(rand_x, 0, rand_z)

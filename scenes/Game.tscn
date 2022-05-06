@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://assets/environments/default_env.tres" type="Environment" id=1]
 [ext_resource path="res://scripts/UI.gd" type="Script" id=2]
@@ -6,7 +6,6 @@
 [ext_resource path="res://assets/textures/options_texture.png" type="Texture" id=4]
 [ext_resource path="res://assets/textures/quiver_texture.png" type="Texture" id=5]
 [ext_resource path="res://assets/textures/panel_slice.png" type="Texture" id=6]
-[ext_resource path="res://scenes/Target.tscn" type="PackedScene" id=7]
 [ext_resource path="res://assets/objects/world.obj" type="ArrayMesh" id=8]
 [ext_resource path="res://assets/objects/bow_frame.obj" type="ArrayMesh" id=9]
 [ext_resource path="res://assets/themes/main_menu_theme.tres" type="Theme" id=10]
@@ -25,7 +24,6 @@ __meta__ = {
 }
 
 [node name="OptionsMenu" type="Control" parent="UI"]
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 __meta__ = {
@@ -52,10 +50,8 @@ __meta__ = {
 [node name="ScrollContainer" type="ScrollContainer" parent="UI/OptionsMenu/Background"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 104.0
-margin_top = 29.0
-margin_right = -105.0
-margin_bottom = -26.0
+margin_left = 115.0
+margin_right = -116.0
 scroll_horizontal_enabled = false
 __meta__ = {
 "_edit_use_anchors_": false
@@ -63,7 +59,6 @@ __meta__ = {
 
 [node name="VBoxContainer" type="VBoxContainer" parent="UI/OptionsMenu/Background/ScrollContainer"]
 theme = ExtResource( 10 )
-alignment = 1
 
 [node name="OptionsButton" type="TextureButton" parent="UI"]
 margin_left = 16.0
@@ -135,9 +130,5 @@ skeleton = NodePath("../..")
 material/0 = ExtResource( 11 )
 
 [node name="Targets" type="Spatial" parent="."]
-
-[node name="Target" parent="Targets" instance=ExtResource( 7 )]
-transform = Transform( -0.528632, 0, 0.848851, 0, 1, 0, -0.848851, 0, -0.528632, 14.9599, 0.346194, 16.4569 )
-skeleton = NodePath("../../..")
 
 [connection signal="pressed" from="UI/OptionsButton" to="UI" method="_on_OptionsButton_pressed"]

@@ -27,3 +27,25 @@ static func sum_scores(scores: Array):
 	for score in scores:
 		sum += score.getValue()
 	return sum
+
+static func saveJSON(data, name):
+	var file = File.new()
+	file.open(name, File.WRITE)
+	file.store_string(to_json(data))
+	file.close()
+
+static func loadJSON(name):
+	var file = File.new()
+	if file.file_exists(name):
+		file.open(name, File.READ)
+		var data = parse_json(file.get_as_text())
+		file.close()
+		match typeof(data):
+			TYPE_ARRAY, TYPE_DICTIONARY:
+				return data
+			_:
+				# printerr("Corrupted or unknown file format")
+				return null
+	else:
+		# printerr("No saved data!")
+		return null
