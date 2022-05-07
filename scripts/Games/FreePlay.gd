@@ -54,8 +54,8 @@ func get_action_list() -> Array:
 	return action_list
 
 func randomWind() -> Vector3:
-	var rand_x = randf() - 1
-	var rand_z = randf() - 1
+	var rand_x = randf() - 0.5
+	var rand_z = randf() - 0.5
 	return Vector3(rand_x, 0, rand_z)
 
 func randomLoc() -> Vector3:

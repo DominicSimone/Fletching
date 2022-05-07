@@ -8,14 +8,24 @@ var gravity_vel: Vector3 = Vector3.ZERO
 var wind_vel: Vector3 = Vector3.ZERO
 var score = 0
 var timer = 10
+var arrowType: int = Enums.ArrowType.DEFAULT setget setType
 
 var player: Spatial
 onready var model: Spatial = get_node("Model")
 onready var arrowhead: MeshInstance = get_node("Model/ArrowHead")
 onready var gameManager: GameManager = get_node("/root/Spatial/GameManager")
+var mat_map = {
+	Enums.ArrowType.DEFAULT: null,
+	Enums.ArrowType.GOLD: preload("res://assets/materials/gold_arrowhead.tres"),
+	Enums.ArrowType.DIAMOND: preload("res://assets/materials/diamond_arrowhead.tres")
+}
 
 var prev_pos: Vector3 = Vector3(0, 0, 0)
 var landedTime: int = 0
+
+func setType(newType):
+	arrowhead.material_override = Util.entry(mat_map, newType, null)
+	arrowType = newType
 
 func _physics_process(delta):
 	if state != Enums.ArrowState.NOCKED:

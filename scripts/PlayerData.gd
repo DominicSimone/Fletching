@@ -8,8 +8,9 @@ var scores: Dictionary = {
 	Enums.GameMode.TIME_ATTACK: [[]]
 }
 var quiver: Dictionary = {
-	Enums.ArrowType.GOLD: 0,
-	Enums.ArrowType.DIAMOND: 0
+	Enums.ArrowType.DEFAULT: INF,
+	Enums.ArrowType.GOLD: 10,
+	Enums.ArrowType.DIAMOND: 5
 }
 
 func serialize_scores(array: Array) -> Array:

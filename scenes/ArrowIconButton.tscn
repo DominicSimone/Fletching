@@ -1,0 +1,30 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://assets/textures/default_head_icon.png" type="Texture" id=1]
+[ext_resource path="res://scripts/ArrowIconButton.gd" type="Script" id=2]
+
+[node name="Control" type="Control"]
+margin_bottom = 60.0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureButton" type="TextureButton" parent="."]
+margin_left = 4.0
+margin_right = 68.0
+margin_bottom = 72.0
+texture_normal = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="."]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_top = -14.0
+margin_right = 40.0
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}

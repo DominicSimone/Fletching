@@ -17,7 +17,7 @@ static func serialize_array(arr: Array) -> Array:
 		result.append(object.serialize())
 	return result
 
-static func entry(dict: Dictionary, key: String, default):
+static func entry(dict: Dictionary, key, default):
 	if key in dict:
 		return dict[key]
 	return default

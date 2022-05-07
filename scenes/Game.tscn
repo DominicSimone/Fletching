@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://assets/environments/default_env.tres" type="Environment" id=1]
 [ext_resource path="res://scripts/UI.gd" type="Script" id=2]
@@ -6,12 +6,17 @@
 [ext_resource path="res://assets/textures/options_texture.png" type="Texture" id=4]
 [ext_resource path="res://assets/textures/quiver_texture.png" type="Texture" id=5]
 [ext_resource path="res://assets/textures/panel_slice.png" type="Texture" id=6]
+[ext_resource path="res://assets/objects/arrow_head.obj" type="ArrayMesh" id=7]
 [ext_resource path="res://assets/objects/world.obj" type="ArrayMesh" id=8]
 [ext_resource path="res://assets/objects/bow_frame.obj" type="ArrayMesh" id=9]
 [ext_resource path="res://assets/themes/main_menu_theme.tres" type="Theme" id=10]
 [ext_resource path="res://assets/materials/hills_mat.tres" type="Material" id=11]
 [ext_resource path="res://assets/materials/bow_mat.tres" type="Material" id=12]
+[ext_resource path="res://scripts/Windicator.gd" type="Script" id=13]
 [ext_resource path="res://assets/themes/score_theme.tres" type="Theme" id=14]
+
+[sub_resource type="SpatialMaterial" id=1]
+albedo_color = Color( 0.6, 0.231373, 0.231373, 1 )
 
 [node name="Game" type="Spatial"]
 
@@ -24,20 +29,22 @@ __meta__ = {
 }
 
 [node name="OptionsMenu" type="Control" parent="UI"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
+theme = ExtResource( 10 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Background" type="NinePatchRect" parent="UI/OptionsMenu"]
-anchor_right = 1.0
+anchor_right = 0.253
 anchor_bottom = 1.0
-margin_left = 114.0
-margin_top = 95.0
-margin_right = -100.0
-margin_bottom = -107.0
-rect_pivot_offset = Vector2( 402, 196 )
+margin_left = 20.0
+margin_top = 88.0
+margin_right = 121.928
+margin_bottom = -166.0
+rect_pivot_offset = Vector2( 185, 173 )
 texture = ExtResource( 6 )
 patch_margin_left = 32
 patch_margin_top = 32
@@ -50,8 +57,10 @@ __meta__ = {
 [node name="ScrollContainer" type="ScrollContainer" parent="UI/OptionsMenu/Background"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 115.0
-margin_right = -116.0
+margin_left = 17.0
+margin_top = 16.0
+margin_right = -20.0
+margin_bottom = -19.0
 scroll_horizontal_enabled = false
 __meta__ = {
 "_edit_use_anchors_": false
@@ -100,6 +109,29 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="QuiverMenu" type="Control" parent="UI"]
+visible = false
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_left = 102.0
+margin_top = -101.0
+margin_right = 613.0
+margin_bottom = -8.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/QuiverMenu"]
+anchor_left = -0.2
+anchor_top = 1.0
+anchor_right = -0.2
+anchor_bottom = 1.0
+margin_left = 102.2
+margin_top = -72.0
+margin_right = 613.2
+margin_bottom = -12.0
+custom_constants/separation = 64
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = ExtResource( 1 )
 
@@ -123,6 +155,16 @@ mesh = ExtResource( 9 )
 skeleton = NodePath("../../..")
 material/0 = ExtResource( 12 )
 
+[node name="Windicator" type="Spatial" parent="Player"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.189095, -0.214641, -0.0675602 )
+script = ExtResource( 13 )
+
+[node name="Indicator" type="MeshInstance" parent="Player/Windicator"]
+transform = Transform( -4.37114e-08, 0, 0.3, 0, 0.3, 0, -1, 0, -1.31134e-08, -9.53674e-07, 0, 1.90735e-06 )
+mesh = ExtResource( 7 )
+skeleton = NodePath("../..")
+material/0 = SubResource( 1 )
+
 [node name="Ground" type="MeshInstance" parent="."]
 transform = Transform( 0.7, 0, 0, 0, 1, 0, 0, 0, 0.7, 0, 0, 0 )
 mesh = ExtResource( 8 )
@@ -132,3 +174,4 @@ material/0 = ExtResource( 11 )
 [node name="Targets" type="Spatial" parent="."]
 
 [connection signal="pressed" from="UI/OptionsButton" to="UI" method="_on_OptionsButton_pressed"]
+[connection signal="pressed" from="UI/QuiverButton" to="UI" method="_on_QuiverButton_pressed"]

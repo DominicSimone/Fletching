@@ -19,9 +19,16 @@ func load_game(game: Game):
 	currentGameState = game.init_state()
 	targetNode = get_node("/root/Spatial/Game/Targets")
 	playerNode = get_node("/root/Spatial/Game/Player")
+	place_targets()
 	UI = get_node("/root/Spatial/Game/UI")
 	UI.load_game_options(currentGame.get_action_list(), self, "ui_action")
+	UI.load_quiver_options(playerData.quiver, self, "select_arrow")
 
+func select_arrow(arrow_type):
+	if playerData.quiver[arrow_type] > 0:
+		playerNode.select_arrow(arrow_type)
+
+# TODO decrement special arrows in PlayerData once fired
 func on_arrow_fire(player, arrow):
 	handleResponse(currentGame.on_arrow_fire(currentGameState, player, arrow))
 
