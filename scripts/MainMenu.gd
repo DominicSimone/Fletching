@@ -22,8 +22,9 @@ func _on_Free_Play_pressed():
 	call_deferred("queue_free")
 
 func _on_Time_Attack_pressed():
-	# TODO when time attack game mode is made
-	pass 
+	get_parent().add_game_node()
+	gameManager.load_game(TimeAttack.new())
+	call_deferred("queue_free")
 
 func _on_Standard_pressed():
 	# TODO when standard game mode is made

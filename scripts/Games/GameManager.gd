@@ -2,7 +2,7 @@ class_name GameManager extends Node
 
 var targetScene = preload("res://scenes/Target.tscn")
 
-var currentGameState: GameState 
+var currentGameState: GameState = GameState.new()
 var currentGame: Game
 var UI: UI
 var playerData: PlayerData = PlayerData.new()
@@ -23,13 +23,25 @@ func load_game(game: Game):
 	UI = get_node("/root/Spatial/Game/UI")
 	UI.load_game_options(currentGame.get_action_list(), self, "ui_action")
 	UI.load_quiver_options(playerData.quiver, self, "select_arrow")
+	UI.update_score(currentGameState.displayed_scores)
+
+func on_game_end(action):
+	match action:
+		"to_menu":
+			get_parent().return_to_menu()
+		"restart":
+			currentGameState = currentGame.init_state()
+			place_targets()
+			UI.close_menus()
+			UI.update_score(currentGameState.displayed_scores)
 
 func select_arrow(arrow_type):
 	if playerData.quiver[arrow_type] > 0:
 		playerNode.select_arrow(arrow_type)
 
-# TODO decrement special arrows in PlayerData once fired
 func on_arrow_fire(player, arrow):
+	playerData.quiver[arrow.arrowType] -= 1
+	UI.update_quiver_options(playerData.quiver)
 	handleResponse(currentGame.on_arrow_fire(currentGameState, player, arrow))
 
 func on_target_hit(player, arrow, target, points):
@@ -53,7 +65,7 @@ func handleResponse(responses: PoolIntArray):
 					"coin_gain": currentGameState.coin_gain
 				}
 				playerData.coins += currentGameState.coin_gain
-				UI.show_results(results)
+				UI.show_results(results, self, "on_game_end")
 
 func _process(delta):
 	if currentGame != null:
@@ -63,7 +75,7 @@ func place_targets():
 	var removeCount = targetNode.get_child_count() - currentGameState.target_locations.size()
 	for i in range(abs(removeCount)):
 		if removeCount > 0:
-			var deadTarget = targetNode.get_child(0)
+			var deadTarget = targetNode.get_child(i)
 			targetNode.remove_child(deadTarget)
 			deadTarget.call_deferred("queue_free")
 		if removeCount < 0:

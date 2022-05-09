@@ -21,7 +21,8 @@ func _ready():
 	new_arrow()
 
 func select_arrow(arrow_type):
-	arrowType = arrow_type
+	# doesn't know how many arrows are available, don't spawn new limited arrows
+#	arrowType = arrow_type
 	if nockedArrow != null:
 		nockedArrow.arrowType = arrow_type
 

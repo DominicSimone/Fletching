@@ -30,7 +30,7 @@ func setType(newType):
 func _physics_process(delta):
 	if state != Enums.ArrowState.NOCKED:
 		timer -= delta
-	if timer < 0 or (landedTime != 0 and landedTime < gameManager.currentGameState.targets_placed_time):
+	if timer < 0 or (landedTime != 0 and landedTime <= gameManager.currentGameState.targets_placed_time):
 		call_deferred("queue_free")
 	if state == Enums.ArrowState.IN_FLIGHT:
 		prev_pos = global_transform.origin

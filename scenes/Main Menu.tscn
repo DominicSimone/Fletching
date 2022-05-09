@@ -17,9 +17,10 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Background" type="TextureRect" parent="."]
+[node name="ColorRect" type="ColorRect" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
+color = Color( 0.396078, 0.662745, 0.192157, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -63,6 +64,7 @@ anchor_top = 0.583333
 anchor_right = 0.625
 anchor_bottom = 0.683333
 theme = ExtResource( 4 )
+disabled = true
 text = "Scores"
 __meta__ = {
 "_edit_use_anchors_": true,
@@ -76,6 +78,7 @@ anchor_right = 0.625
 anchor_bottom = 0.816667
 margin_top = 3.05176e-05
 theme = ExtResource( 4 )
+disabled = true
 text = "Shop"
 __meta__ = {
 "_edit_use_anchors_": true,
@@ -96,6 +99,7 @@ anchor_top = 0.45
 anchor_right = 0.625
 anchor_bottom = 0.55
 theme = ExtResource( 4 )
+disabled = true
 text = "Standard"
 __meta__ = {
 "_edit_use_anchors_": false,

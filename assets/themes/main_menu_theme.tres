@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=4 format=2]
+[gd_resource type="Theme" load_steps=5 format=2]
 
 [ext_resource path="res://assets/Bullpen3D.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://assets/themes/button_style_flat.tres" type="StyleBox" id=2]
@@ -7,6 +7,10 @@
 size = 24
 extra_spacing_top = 6
 extra_spacing_bottom = 4
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 34
 font_data = ExtResource( 1 )
 
 [resource]
@@ -18,4 +22,6 @@ Button/fonts/font = SubResource( 1 )
 Button/styles/hover = ExtResource( 2 )
 Button/styles/normal = ExtResource( 2 )
 Button/styles/pressed = ExtResource( 2 )
+Label/colors/font_color = Color( 0, 0, 0, 1 )
+Label/fonts/font = SubResource( 2 )
 VBoxContainer/constants/separation = 64

@@ -49,6 +49,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://scripts/Score.gd"
 }, {
+"base": "Game",
+"class": "TimeAttack",
+"language": "GDScript",
+"path": "res://scripts/Games/TimeAttack.gd"
+}, {
 "base": "Control",
 "class": "UI",
 "language": "GDScript",
@@ -68,6 +73,7 @@ _global_script_class_icons={
 "GameState": "",
 "PlayerData": "",
 "Score": "",
+"TimeAttack": "",
 "UI": "",
 "Util": ""
 }
