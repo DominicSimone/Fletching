@@ -4,7 +4,7 @@ onready var optionsMenu: Control = get_node("OptionsMenu")
 onready var quiverMenu: Control = get_node("QuiverMenu")
 onready var resultsMenu: Control = get_node("ResultsMenu")
 onready var scoreLabel: Label = get_node("Score")
-onready var vbox: VBoxContainer = get_node("OptionsMenu/Background/ScrollContainer/VBoxContainer")
+onready var vbox: VBoxContainer = get_node("OptionsMenu/ScrollContainer/VBoxContainer")
 onready var hbox: HBoxContainer = get_node("QuiverMenu/HBoxContainer")
 var arrowIcons: Dictionary = {}
 
@@ -34,8 +34,6 @@ func close_menus():
 	quiverMenu.visible = false
 
 func show_results(results: Dictionary, executor: Object, method: String):
-	# TODO need to hook up buttons to functions somewhere
-	# TODO show results
 	close_menus()
 	update_score([])
 	resultsMenu.visible = true

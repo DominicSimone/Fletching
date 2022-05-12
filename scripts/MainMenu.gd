@@ -1,16 +1,35 @@
 extends Control
 
-onready var gameManager = get_node("/root/Spatial/GameManager")
-onready var primaryControl: Control = get_node("Primary")
+onready var gameManager: GameManager = get_node("/root/Spatial/GameManager")
+onready var primaryControl: Control = get_node("PrimaryPlay")
 onready var secondaryPlayControl: Control = get_node("SecondaryPlay")
+onready var scorePageControl: Control = get_node("Scores")
+onready var shopControl: Control = get_node("Shop")
 
-func _on_Play_pressed():
+func _input(event):
+	if event.is_action_pressed("ui_cancel"):
+		hideAll()
+		primaryControl.visible = true
+
+func _notification(what):
+	if what == MainLoop.NOTIFICATION_WM_QUIT_REQUEST:
+		hideAll()
+		primaryControl.visible = true
+
+func hideAll():
 	primaryControl.visible = false
+	secondaryPlayControl.visible = false
+	scorePageControl.visible = false
+	shopControl.visible = false
+	
+func _on_Play_pressed():
+	hideAll()
 	secondaryPlayControl.visible = true
 
 func _on_Scores_pressed():
-	# TODO
-	print("Scores screen")
+	hideAll()
+	scorePageControl.populate(gameManager.playerData)
+	scorePageControl.visible = true
 
 func _on_Shop_pressed():
 	# TODO

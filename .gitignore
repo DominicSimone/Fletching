@@ -10,3 +10,6 @@ data_*/
 # Build template
 android/*
 *apk*
+
+# Project specific ignores
+*data.json

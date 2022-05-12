@@ -20,7 +20,11 @@ func serialize() -> Dictionary:
 	return {
 		"points": points,
 		"distance": distance,
-		"wind": wind,
+		"wind": {
+			"x": wind.x,
+			"y": wind.y,
+			"z": wind.z
+		},
 		"value": value,
 		"arrowType": arrowType
 	}
@@ -28,6 +32,6 @@ func serialize() -> Dictionary:
 func deserialize(dict: Dictionary):
 	points = dict.points
 	distance = dict.distance
-	wind = dict.wind
+	wind = Vector3(dict.wind.x, dict.wind.y, dict.wind.z)
 	value = dict.value
 	arrowType = dict.arrowType

@@ -59,12 +59,15 @@ func handleResponse(responses: PoolIntArray):
 			Enums.GameResponse.UPDATE_SCORE:
 				UI.update_score(currentGameState.displayed_scores)
 			Enums.GameResponse.END_GAME:
-				# TODO incorporate results into player data and save it
 				var results: Dictionary = {
-					"score": Util.sum_scores(currentGameState.scores),
+					"score": ceil(Util.sum_scores(currentGameState.scores)),
 					"coin_gain": currentGameState.coin_gain
 				}
-				playerData.coins += currentGameState.coin_gain
+				if results.score > 0:
+					playerData.coins += currentGameState.coin_gain
+					playerData.add_score(currentGameState.scores, currentGameState.gamemode)
+				var jsonData = playerData.serialize()
+				Util.saveJSON(jsonData, "data.json")
 				UI.show_results(results, self, "on_game_end")
 
 func _process(delta):

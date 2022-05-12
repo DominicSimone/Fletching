@@ -1,12 +1,14 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://assets/Bullpen3D.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://assets/themes/score_theme.tres" type="Theme" id=2]
 [ext_resource path="res://scripts/MainMenu.gd" type="Script" id=3]
 [ext_resource path="res://assets/themes/main_menu_theme.tres" type="Theme" id=4]
+[ext_resource path="res://assets/themes/score_page.tres" type="Theme" id=5]
+[ext_resource path="res://scripts/ScorePage.gd" type="Script" id=6]
 
 [sub_resource type="DynamicFont" id=1]
-size = 64
+size = 50
 font_data = ExtResource( 1 )
 
 [node name="MainMenu" type="Control"]
@@ -25,10 +27,17 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Title" type="Label" parent="."]
-anchor_top = 0.135
+[node name="PrimaryPlay" type="Control" parent="."]
 anchor_right = 1.0
-anchor_bottom = 0.278333
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Title" type="Label" parent="PrimaryPlay"]
+anchor_top = 0.0583333
+anchor_right = 0.99707
+anchor_bottom = 0.471667
 theme = ExtResource( 2 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 1 )
@@ -37,51 +46,50 @@ align = 1
 valign = 1
 uppercase = true
 __meta__ = {
-"_edit_use_anchors_": true
+"_edit_use_anchors_": false
 }
 
-[node name="Primary" type="Control" parent="."]
-anchor_right = 1.0
-anchor_bottom = 1.0
+[node name="Play" type="Button" parent="PrimaryPlay"]
+anchor_left = 0.5
+anchor_top = 0.45
+anchor_right = 0.5
+anchor_bottom = 0.55
+margin_left = -128.0
+margin_right = 128.0
+theme = ExtResource( 4 )
+text = "Play"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Play" type="Button" parent="Primary"]
-anchor_left = 0.375
-anchor_top = 0.45
-anchor_right = 0.625
-anchor_bottom = 0.55
-theme = ExtResource( 4 )
-text = "Play"
-__meta__ = {
-"_edit_use_anchors_": true
-}
-
-[node name="Scores" type="Button" parent="Primary"]
-anchor_left = 0.375
-anchor_top = 0.583333
-anchor_right = 0.625
+[node name="Scores" type="Button" parent="PrimaryPlay"]
+anchor_left = 0.5
+anchor_top = 0.583
+anchor_right = 0.5
 anchor_bottom = 0.683333
+margin_left = -128.0
+margin_top = 0.199829
+margin_right = 128.0
 theme = ExtResource( 4 )
-disabled = true
 text = "Scores"
 __meta__ = {
-"_edit_use_anchors_": true,
+"_edit_use_anchors_": false,
 "_editor_description_": ""
 }
 
-[node name="Shop" type="Button" parent="Primary"]
-anchor_left = 0.375
-anchor_top = 0.716667
-anchor_right = 0.625
+[node name="Shop" type="Button" parent="PrimaryPlay"]
+anchor_left = 0.5
+anchor_top = 0.717
+anchor_right = 0.5
 anchor_bottom = 0.816667
-margin_top = 3.05176e-05
+margin_left = -128.0
+margin_top = -0.199799
+margin_right = 128.0
 theme = ExtResource( 4 )
 disabled = true
 text = "Shop"
 __meta__ = {
-"_edit_use_anchors_": true,
+"_edit_use_anchors_": false,
 "_editor_description_": ""
 }
 
@@ -89,6 +97,21 @@ __meta__ = {
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Title" type="Label" parent="SecondaryPlay"]
+anchor_top = 0.0583333
+anchor_right = 0.99707
+anchor_bottom = 0.471667
+theme = ExtResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "Fletching"
+align = 1
+valign = 1
+uppercase = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -131,9 +154,106 @@ __meta__ = {
 "_editor_description_": ""
 }
 
-[connection signal="pressed" from="Primary/Play" to="." method="_on_Play_pressed"]
-[connection signal="pressed" from="Primary/Scores" to="." method="_on_Scores_pressed"]
-[connection signal="pressed" from="Primary/Shop" to="." method="_on_Shop_pressed"]
+[node name="Scores" type="Control" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Scores"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -111.0
+margin_top = 16.0
+margin_right = 111.0
+margin_bottom = 62.0
+theme = ExtResource( 4 )
+text = "High Scores"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Scores"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -75.0
+margin_top = 88.0
+margin_right = 160.0
+margin_bottom = 598.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Scores/ScrollContainer"]
+margin_right = 158.0
+margin_bottom = 149.0
+theme = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Free Play" type="Label" parent="Scores/ScrollContainer/VBoxContainer"]
+margin_right = 158.0
+margin_bottom = 33.0
+theme = ExtResource( 5 )
+text = "Free Play"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="FreePlayContainer" type="VBoxContainer" parent="Scores/ScrollContainer/VBoxContainer"]
+margin_top = 43.0
+margin_right = 158.0
+margin_bottom = 43.0
+theme = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Time Attack" type="Label" parent="Scores/ScrollContainer/VBoxContainer"]
+margin_top = 53.0
+margin_right = 158.0
+margin_bottom = 86.0
+text = "Time Attack"
+
+[node name="TimeAttackContainer" type="VBoxContainer" parent="Scores/ScrollContainer/VBoxContainer"]
+margin_top = 96.0
+margin_right = 158.0
+margin_bottom = 96.0
+theme = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Standard" type="Label" parent="Scores/ScrollContainer/VBoxContainer"]
+margin_top = 106.0
+margin_right = 158.0
+margin_bottom = 139.0
+text = "Standard"
+
+[node name="StandardContainer" type="VBoxContainer" parent="Scores/ScrollContainer/VBoxContainer"]
+margin_top = 149.0
+margin_right = 158.0
+margin_bottom = 149.0
+theme = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Shop" type="Control" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="pressed" from="PrimaryPlay/Play" to="." method="_on_Play_pressed"]
+[connection signal="pressed" from="PrimaryPlay/Scores" to="." method="_on_Scores_pressed"]
+[connection signal="pressed" from="PrimaryPlay/Shop" to="." method="_on_Shop_pressed"]
 [connection signal="pressed" from="SecondaryPlay/Standard" to="." method="_on_Standard_pressed"]
 [connection signal="pressed" from="SecondaryPlay/Time Attack" to="." method="_on_Time_Attack_pressed"]
 [connection signal="pressed" from="SecondaryPlay/Free Play" to="." method="_on_Free_Play_pressed"]
