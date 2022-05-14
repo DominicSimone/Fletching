@@ -63,7 +63,7 @@ func serialize() -> Dictionary:
 	}
 
 # Converting dict to JSON is an awful way to serialize/deserialize data in Godot. Enums are 
-# converted from int to string during the process, Vector3 is converted to a formatted String, 
+# converted from int to string (if key) during the process, Vector3 is converted to a formatted String, 
 # there is no way to differentiate int from float, just all around terrible. 
 # Try and use custom Resource objects in the next project.
 func deserialize(dict: Dictionary):

@@ -16,8 +16,8 @@ onready var arrowhead: MeshInstance = get_node("Model/ArrowHead")
 onready var gameManager: GameManager = get_node("/root/Spatial/GameManager")
 var mat_map = {
 	Enums.ArrowType.DEFAULT: null,
-	Enums.ArrowType.GOLD: preload("res://assets/materials/gold_arrowhead.tres"),
-	Enums.ArrowType.DIAMOND: preload("res://assets/materials/diamond_arrowhead.tres")
+	Enums.ArrowType.GOLD: preload("res://assets/materials/goldArrowhead.tres"),
+	Enums.ArrowType.DIAMOND: preload("res://assets/materials/diamondArrowhead.tres")
 }
 
 var prev_pos: Vector3 = Vector3(0, 0, 0)

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/quiver_texture.png-23e349b7a196361d4ce274574936e806.stex"
+path="res://.import/goldHeadIcon.png-da779d30ad64ab6e7332d4b91aea44a4.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/textures/quiver_texture.png"
-dest_files=[ "res://.import/quiver_texture.png-23e349b7a196361d4ce274574936e806.stex" ]
+source_file="res://assets/textures/goldHeadIcon.png"
+dest_files=[ "res://.import/goldHeadIcon.png-da779d30ad64ab6e7332d4b91aea44a4.stex" ]
 
 [params]
 

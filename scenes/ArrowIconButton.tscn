@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://assets/textures/default_head_icon.png" type="Texture" id=1]
+[ext_resource path="res://assets/textures/defaultHeadIcon.png" type="Texture" id=1]
 [ext_resource path="res://scripts/ArrowIconButton.gd" type="Script" id=2]
 
 [node name="Control" type="Control"]

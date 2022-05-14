@@ -2,8 +2,8 @@
 
 importer="texture"
 type="StreamTexture"
-path.s3tc="res://.import/arrow_shaft_texture.png-b85ca0abcf4cf0f9657d5bb269e7262b.s3tc.stex"
-path.etc2="res://.import/arrow_shaft_texture.png-b85ca0abcf4cf0f9657d5bb269e7262b.etc2.stex"
+path.s3tc="res://.import/arrowShaftTexture.png-395c48a174f415646b82160657c0e2d4.s3tc.stex"
+path.etc2="res://.import/arrowShaftTexture.png-395c48a174f415646b82160657c0e2d4.etc2.stex"
 metadata={
 "imported_formats": [ "s3tc", "etc2" ],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/textures/arrow_shaft_texture.png"
-dest_files=[ "res://.import/arrow_shaft_texture.png-b85ca0abcf4cf0f9657d5bb269e7262b.s3tc.stex", "res://.import/arrow_shaft_texture.png-b85ca0abcf4cf0f9657d5bb269e7262b.etc2.stex" ]
+source_file="res://assets/textures/arrowShaftTexture.png"
+dest_files=[ "res://.import/arrowShaftTexture.png-395c48a174f415646b82160657c0e2d4.s3tc.stex", "res://.import/arrowShaftTexture.png-395c48a174f415646b82160657c0e2d4.etc2.stex" ]
 
 [params]
 

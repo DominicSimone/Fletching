@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://assets/objects/arrow_shaft.obj" type="ArrayMesh" id=1]
-[ext_resource path="res://assets/objects/arrow_head.obj" type="ArrayMesh" id=2]
+[ext_resource path="res://assets/objects/arrowShaft.obj" type="ArrayMesh" id=1]
+[ext_resource path="res://assets/objects/arrowHead.obj" type="ArrayMesh" id=2]
 [ext_resource path="res://scripts/Arrow.gd" type="Script" id=3]
+[ext_resource path="res://assets/materials/arrowShaftMat.tres" type="Material" id=4]
 
 [sub_resource type="CapsuleShape" id=1]
 radius = 0.0482598
@@ -18,13 +19,11 @@ transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0
 [node name="Shaft" type="MeshInstance" parent="Model"]
 transform = Transform( 4.37114e-08, -3.82137e-15, -1, -8.74228e-08, -1, 0, -1, 8.74228e-08, -4.37114e-08, 0, 0, 0 )
 mesh = ExtResource( 1 )
-skeleton = NodePath("../../../..")
-material/0 = null
+material/0 = ExtResource( 4 )
 
 [node name="ArrowHead" type="MeshInstance" parent="Model"]
 transform = Transform( -4.37114e-08, 0, -0.8, 0, 0.8, 0, 1, 4.44091e-17, -3.49691e-08, -0.000442371, 2.98023e-08, 0.510995 )
 mesh = ExtResource( 2 )
-skeleton = NodePath("../../../..")
 material/0 = null
 
 [node name="Area" type="Area" parent="Model"]

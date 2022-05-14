@@ -12,8 +12,6 @@ onready var camera: Camera = get_node("Camera")
 var fov_range = [40, 60]
 var sense_range = [0.2, 1]
 
-var prev_gyro: Vector3 = Vector3.ZERO
-
 var rot_x: float = 0
 var rot_y: float = 0
 
@@ -39,7 +37,7 @@ func _input(event):
 	if event is InputEventScreenDrag and nockedArrow != null:
 		bow_draw += event.relative.y / (OS.window_size.y * 0.8)
 		bow_draw = clamp(bow_draw, 0, max_draw)
-		camera.fov = Util.in_range(fov_range, 1 - bow_draw, true)
+#		camera.fov = Util.in_range(fov_range, 1 - bow_draw, true)
 		nockedArrow.adjust_draw(bow_draw)
 		
 	if event is InputEventScreenTouch:
@@ -50,7 +48,7 @@ func _input(event):
 				Util.move(nockedArrow, self, get_parent())
 				nockedArrow = null
 				bow_draw = 0
-				camera.fov = Util.in_range(fov_range, 1 - bow_draw)
+#				camera.fov = Util.in_range(fov_range, 1 - bow_draw)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -65,9 +63,8 @@ func _process(delta):
 		rot_y -= delta * Util.in_range(sense_range, 1 - bow_draw)
 	
 	var gyro: Vector3 = Input.get_gyroscope()
-	rot_x += (gyro.x - prev_gyro.x) * delta * Util.in_range(sense_range, 1 - bow_draw)
-	rot_y += (gyro.y - prev_gyro.y) * delta * Util.in_range(sense_range, 1 - bow_draw)
-	prev_gyro = gyro
+	rot_x += gyro.y * delta 
+	rot_y += gyro.x * delta 
 	
 	transform.basis = Basis()
 	rotate_object_local(Vector3.UP, rot_x)

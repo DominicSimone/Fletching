@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/panel_slice.png-eea984b8f7e27bde247de8c53c1befa1.stex"
+path="res://.import/quiverTexture.png-6333d7088e223dc46ad3035154382c8b.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/textures/panel_slice.png"
-dest_files=[ "res://.import/panel_slice.png-eea984b8f7e27bde247de8c53c1befa1.stex" ]
+source_file="res://assets/textures/quiverTexture.png"
+dest_files=[ "res://.import/quiverTexture.png-6333d7088e223dc46ad3035154382c8b.stex" ]
 
 [params]
 

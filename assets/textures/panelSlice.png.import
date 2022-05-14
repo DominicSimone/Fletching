@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/gold_head_icon.png-08f0b1694ec1d783cfd37127594ee1dd.stex"
+path="res://.import/panelSlice.png-17fdd6cd3d7581c9170f55288d7d2892.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/textures/gold_head_icon.png"
-dest_files=[ "res://.import/gold_head_icon.png-08f0b1694ec1d783cfd37127594ee1dd.stex" ]
+source_file="res://assets/textures/panelSlice.png"
+dest_files=[ "res://.import/panelSlice.png-17fdd6cd3d7581c9170f55288d7d2892.stex" ]
 
 [params]
 

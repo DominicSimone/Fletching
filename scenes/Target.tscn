@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://assets/materials/target_mat.tres" type="Material" id=1]
+[ext_resource path="res://assets/materials/targetMat.tres" type="Material" id=1]
 [ext_resource path="res://assets/objects/target.obj" type="ArrayMesh" id=2]
 [ext_resource path="res://scripts/Target.gd" type="Script" id=3]
 

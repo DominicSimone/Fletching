@@ -1,0 +1,13 @@
+[remap]
+
+importer="image"
+type="Image"
+path="res://.import/targetTexture.png-dfdfc5a568fcbf5dab7334753362aca4.image"
+
+[deps]
+
+source_file="res://assets/textures/targetTexture.png"
+dest_files=[ "res://.import/targetTexture.png-dfdfc5a568fcbf5dab7334753362aca4.image" ]
+
+[params]
+

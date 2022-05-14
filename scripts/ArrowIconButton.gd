@@ -3,9 +3,9 @@ class_name ArrowIconButton extends Control
 onready var label = get_node("Label")
 onready var texButton: TextureButton = get_node("TextureButton")
 var texMapping = {
-	Enums.ArrowType.DEFAULT: preload("res://assets/textures/default_head_icon.png"),
-	Enums.ArrowType.GOLD: preload("res://assets/textures/gold_head_icon.png"),
-	Enums.ArrowType.DIAMOND: preload("res://assets/textures/diamond_head_icon.png")
+	Enums.ArrowType.DEFAULT: preload("res://assets/textures/defaultHeadIcon.png"),
+	Enums.ArrowType.GOLD: preload("res://assets/textures/goldHeadIcon.png"),
+	Enums.ArrowType.DIAMOND: preload("res://assets/textures/diamondHeadIcon.png")
 }
 var arrowType: int = Enums.ArrowType.DEFAULT setget setType
 var numArrows: int = 0 setget setAmount
